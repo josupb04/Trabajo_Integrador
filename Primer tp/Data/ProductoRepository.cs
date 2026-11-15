@@ -28,7 +28,7 @@ namespace Primer_tp.Data
                     using (var command = new SqlCommand(query, connection)) //Mensajero que lleva la consulta SELECT a traves de ese "tunel" o "puente"
                     {
                         connection.Open(); //Con esto abrimos la "puerta"
-                         
+
                         using (var reader = command.ExecuteReader()) //Lector rápido hacia adelante que recibe que recibe la tabla de resultados de SQL y permite leer fila x fila para convertir cada registro en objeto C#
                         {
                             // Recorremos fila por fila los resultados que devuelve SQL Server
