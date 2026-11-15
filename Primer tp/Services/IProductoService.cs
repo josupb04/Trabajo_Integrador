@@ -6,6 +6,6 @@ namespace Primer_tp.Services
     {
         //Define el contrato: Qué operaciones debe proporcionar el servicio
         IEnumerable<Producto> ObtenerTodos();
-        Producto ObtenerPorId(int id);
+        Producto? ObtenerPorId(int id);
     }
 }

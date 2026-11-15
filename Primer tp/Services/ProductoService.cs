@@ -1,20 +1,29 @@
-﻿using Primer_tp.Models;
+﻿using Primer_tp.Data;
+using Primer_tp.Models;
 
 namespace Primer_tp.Services
 {
-    // La clase recibe la interfaz IProductoService
     public class ProductoService : IProductoService
     {
-        public IEnumerable<Producto> ObtenerTodos()
+        // Guardamos la referencia al repositorio mediante su interfaz
+        private readonly IProductoRepository _productoRepository;
+
+        // CONSTRUCTOR: ASP.NET Core inyecta ProductoRepository automáticamente
+        public ProductoService(IProductoRepository productoRepository)
         {
-            // Retorno temporal vacío. Más adelante se conecta la base de datos acá.
-            return new List<Producto>();
+            _productoRepository = productoRepository;
         }
 
-        public Producto ObtenerPorId(int id)
+        public IEnumerable<Producto> ObtenerTodos()
         {
-            // Retorno temporal vacío.
-            return new Producto();
+            // Delegamos la búsqueda al repositorio
+            return _productoRepository.ObtenerTodos();
+        }
+
+        public Producto? ObtenerPorId(int id)
+        {
+            // Delegamos la búsqueda por ID al repositorio
+            return _productoRepository.ObtenerPorId(id);
         }
     }
 }
