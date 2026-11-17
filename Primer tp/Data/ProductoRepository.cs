@@ -69,7 +69,7 @@ namespace Primer_tp.Data
                     using (var command = new SqlCommand(query, connection)) //se usa VAR porque el método devuelve un objeto tipo SqlDataReader
                     {
                         // Asignamos el valor al parámetro de forma segura
-                        command.Parameters.AddWithValue("@Id", id); //Esto sirve para bloquear cualquier intento de ejecutar comandos extraños.
+                        command.Parameters.AddWithValue("@Id", id); //Esto sirve para bloquear cualquier intento de ejecutar comandos extraños. A
 
                         connection.Open();
 
